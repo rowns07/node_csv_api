@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const csvController = require("../controllers/tutorials/csv.controller");
-const upload = require("../middlewares/updload");
+const upload = require("../middlewares/upload");
 let routes = (app) => {
   router.post("/upload", upload.single("file"), csvController.upload);
   router.get("/tutorials", csvController.getTutorials);
