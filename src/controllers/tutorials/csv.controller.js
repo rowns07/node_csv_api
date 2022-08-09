@@ -2,6 +2,7 @@ const db = require("../../models");
 const Tutorial = db.tutorials;
 const fs = require("fs");
 const csv = require("fast-csv");
+
 const upload = async (req, res) => {
   try {
     if (req.file == undefined) {
@@ -39,19 +40,7 @@ const upload = async (req, res) => {
     });
   }
 };
-const getTutorials = (req, res) => {
-  Tutorial.findAll()
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials.",
-      });
-    });
-};
+
 module.exports = {
-  upload,
-  getTutorials
+  upload
 };
